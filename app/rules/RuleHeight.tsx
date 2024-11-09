@@ -70,7 +70,7 @@ export function RuleHeight({
         Verify your height:
         <p>Feet <Input type="number" min="0" disabled={isOpen} onChange={(event) => height.feet = (+event.target.value)}/></p>
         <p>Inches <Input type="number" min="0" max="12" disabled={isOpen} onChange={(event) => height.inches = (+event.target.value)}/></p>
-        <p>Sixteenths of an inch <Input type="number" min="0" max="16" disabled={isOpen} onChange={(event) => height.sixteenths = (+event.target.value)}/></p>
+        <p>Sixtines of an inch <Input type="number" min="0" max="16" disabled={isOpen} onChange={(event) => height.sixteenths = (+event.target.value)}/></p>
         <br/>
         <Button onClick={verify} disabled={isOpen}>Verify</Button>
       </div>
