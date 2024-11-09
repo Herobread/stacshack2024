@@ -5,12 +5,12 @@ import { RuleTemplate } from "@/app/rules/RuleTemplate";
 import RadioPicker from "@/components/radioPicker";
 import { useState } from "react";
 import { RuleDisplay } from "./rules/RuleDisplay";
+import { TypeCandidate } from "./rules/TypeCandidate";
 
 export default function Home() {
   const [openedRules, setOpenedRules] = useState(1);
   const [rules, setRules] = useState<Record<number, boolean>>({});
-
-  const [votePick, setvotePick] = useState("");
+  const [votePick, setvotePick] = useState(""); // Holds the user's selected candidate
   const candidates = [
     {
       name: "Donald Duck",
@@ -27,7 +27,6 @@ export default function Home() {
   const iterateRule = () => {
     setOpenedRules((openedRules) => {
       console.log("opened new rule");
-
       return (openedRules += 1);
     });
   };
@@ -57,14 +56,15 @@ export default function Home() {
         ))}
       </div>
 
-      <p>You are about to vote for: {votePick} 🔫</p>
-
       <RenderRules amount={openedRules}>
-        <RuleTemplate
-          id={0}
-          onSuccessCallback={iterateRule}
-          onStateChange={handleStateChange}
-        />
+        {votePick && (
+          <TypeCandidate
+            candidate={votePick} // Pass the chosen candidate to TypeCandidate
+            id={0}
+            onSuccessCallback={iterateRule}
+            onStateChange={handleStateChange}
+          />
+        )}
         <RuleTemplate
           id={1}
           onSuccessCallback={iterateRule}
