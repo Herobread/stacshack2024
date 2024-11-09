@@ -51,10 +51,10 @@ export function RuleHeight({
         title: "❌ Invalid Height",
         description: "You are voting for Donald Duck, who doesn't want voters below 7 feet."
       });
-    } else if(candidateName == "Camilla Cabello" && calcHeight > 7) {
+    } else if(candidateName == "Camilla Cabello" && calcHeight > 3) {
       toast({
         title: "❌ Invalid Height",
-        description: "You are voting for Camilla Cabello, who doesn't want voters above 7 feet."
+        description: "You are voting for Camilla Cabello, who doesn't want voters above 3 feet."
       });
     } else {
       toast({
