@@ -44,34 +44,30 @@ export function RuleBodyCount({
       case "moreThan2":
         toast({
           title: "🛑 You can’t vote!",
-          description: "Commitment isn’t your thing. Try again later!",
+          description: "Commitment isn’t your thing. Try again later!, but it is ok this time because you are perfectly faithful",
         });
+        notifySuccess();
         break;
       case "zero":
         toast({
           title: "🛑 You can’t vote!",
-          description: "You have no experience in negotiations.",
+          description: "You have no experience in negotiations, but it is ok this time because you are perfectly faithful",
         });
+        notifySuccess();
         break;
       case "one":
         toast({
           title: "🛑 You can’t vote!",
-          description: "You’re too loyal to see other perspectives.",
+          description: "You’re too loyal to see other perspectives, but it is ok this time because you are perfectly faithful",
         });
+        notifySuccess();
         break;
       default:
         // If we reach here, something went wrong.
         return;
     }
 
-    // Progress to success after showing the humor message
-    setTimeout(() => {
-      toast({
-        title: "✅ Rule Completed",
-        description: "Your response has been processed! Moving on.",
-      });
-      notifySuccess();
-    }, 3000); // 3-second delay for humor
+   
   };
 
   return (
