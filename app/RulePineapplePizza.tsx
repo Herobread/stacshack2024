@@ -59,8 +59,6 @@ export function RulePineapplePizza({
       return;
     }
 
-    // Mark the rule as completed
-    notifySuccess();
   };
 
   return (
