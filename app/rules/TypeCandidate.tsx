@@ -1,11 +1,10 @@
 import RuleCard from "@/app/rules/RuleCard";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 
 type SuccessCallback = () => void;
-
-// copy this file to create new rule
 
 export function TypeCandidate({
   candidate,
@@ -22,26 +21,37 @@ export function TypeCandidate({
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [inputValue, setInputValue] = useState<string>("");
 
-  // run this function whenever u want to mark this rule completed and allow progression to next one
-  const notifySuccess = () => {
-    // Check if the input matches the reversed candidate
-    if (inputValue === candidate.split('').reverse().join('')) {
-      if (!isOpen) {
-        // Update local state to mark the rule as "success notified"
-        setIsOpen(true);
+  const [block, setBlock] = useState(false)
 
-        // Call the parent-provided callback to handle the success notification
-        onSuccessCallback();
-        onStateChange(id, true); // Pass the `id` and new state to the parent
-      }
+  const { toast } = useToast(); // Toast hook for notifications
+
+  // Function to mark the rule as completed and allow progression
+  const notifySuccess = () => {
+    if (!isOpen) {
+      setIsOpen(true); // Mark rule as completed
+      onSuccessCallback(); // Notify parent component
+      onStateChange(id, true); // Update parent state
+    }
+  };
+
+  const verifyInput = () => {
+    if (inputValue === candidate.split("").reverse().join("")) {
+      notifySuccess(); // Mark success
+      toast({
+        title: "✅ Success!",
+        description: "You entered the candidate's name backwards correctly.",
+      });
     } else {
-      alert("Input does not match the reversed candidate name.");
+      setBlock(true)
+      toast({
+        title: "❌ Incorrect!",
+        description: "Freedom isn't free, and neither are second chances. Try harder, patriot!",
+      });
     }
   };
 
   return (
     <RuleCard>
-      {/* example content, replace with your fun content */}
       <div>
         <p>
           Confirm your vote by typing the candidate's name backwards:
@@ -54,9 +64,12 @@ export function TypeCandidate({
           disabled={isOpen} // Disable input if the rule is completed
         />
       </div>
-      <Button onClick={notifySuccess} disabled={isOpen}>
+      {
+!block &&
+        <Button onClick={verifyInput} disabled={isOpen} >
         {isOpen ? "Verified" : "Verify"}
       </Button>
+      }
     </RuleCard>
   );
 }
