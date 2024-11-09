@@ -6,6 +6,8 @@ import { TypeCandidate } from "@/app/rules/TypeCandidate";
 import RadioPicker from "@/components/radioPicker";
 import { useState } from "react";
 import { RuleHeight } from "./rules/RuleHeight";
+import { RuleSnack } from "./rules/RuleSnack";
+import { RulePassportUpload } from "./RulePassport";
 
 export default function Home() {
   const [openedRules, setOpenedRules] = useState(1);
@@ -75,6 +77,15 @@ export default function Home() {
             onSuccessCallback={iterateRule}
             onStateChange={handleStateChange}
           />
+          <RuleSnack
+            id={3}
+            onSuccessCallback={iterateRule}
+            onStateChange={handleStateChange}
+          />
+          <RulePassportUpload
+            id={3}
+            onSuccessCallback={iterateRule}
+            onStateChange={handleStateChange}/>
         </RenderRules>
       )}
     </div>
