@@ -1,11 +1,10 @@
 "use client";
 
 import { RenderRules } from "@/app/rules/RenderRules";
-import { RuleTemplate } from "@/app/rules/RuleTemplate";
+import { RuleMountainDew } from "@/app/rules/RuleMountainDew";
+import { TypeCandidate } from "@/app/rules/TypeCandidate";
 import RadioPicker from "@/components/radioPicker";
 import { useState } from "react";
-import { RuleDisplay } from "./rules/RuleDisplay";
-import { TypeCandidate } from "./rules/TypeCandidate";
 
 export default function Home() {
   const [openedRules, setOpenedRules] = useState(1);
@@ -56,31 +55,21 @@ export default function Home() {
         ))}
       </div>
 
-      <RenderRules amount={openedRules}>
-        {votePick && (
+      {votePick && (
+        <RenderRules amount={openedRules}>
           <TypeCandidate
             candidate={votePick} // Pass the chosen candidate to TypeCandidate
             id={0}
             onSuccessCallback={iterateRule}
             onStateChange={handleStateChange}
           />
-        )}
-        <RuleTemplate
-          id={1}
-          onSuccessCallback={iterateRule}
-          onStateChange={handleStateChange}
-        />
-        <RuleTemplate
-          id={2}
-          onSuccessCallback={iterateRule}
-          onStateChange={handleStateChange}
-        />
-        <RuleTemplate
-          id={3}
-          onSuccessCallback={iterateRule}
-          onStateChange={handleStateChange}
-        />
-      </RenderRules>
+          <RuleMountainDew
+            id={3}
+            onSuccessCallback={iterateRule}
+            onStateChange={handleStateChange}
+          />
+        </RenderRules>
+      )}
     </div>
   );
 }
