@@ -27,7 +27,7 @@ export default function Home() {
 
       <div className={`grid grid-cols-${candidates.length} gap-24`}>
         {candidates.map((cd) => 
-          <RadioPicker set={setvotePick} radioGroup="votePick" selected={votePick} candidate={cd}/>
+          <RadioPicker set={setvotePick} radioGroup="votePick" selected={votePick} candidate={cd} key={cd.name}/>
         )}
       </div>
 
