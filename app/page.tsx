@@ -9,7 +9,7 @@ import { RuleHeight } from "./rules/RuleHeight";
 import { RuleSnack } from "./rules/RuleSnack";
 import { RulePassportUpload } from "./rules/RulePassport";
 import { RuleBodyCount } from "./RuleBodyCount";
-import { RulePineapplePizza, RuleShoeSize } from "./RulePineapplePizza";
+import { RulePineapplePizza } from "./RulePineapplePizza";
 
 export default function Home() {
   const [openedRules, setOpenedRules] = useState(1);
