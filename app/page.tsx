@@ -63,7 +63,7 @@ export default function Home() {
         ))}
       </div>
 
-      {votePick && (
+      {votePick && !completed && (
         <RenderRules amount={openedRules}>
           <TypeCandidate
             candidate={votePick} // Pass the chosen candidate to TypeCandidate
@@ -78,7 +78,7 @@ export default function Home() {
           onStateChange={handleStateChange}
           />
           <RuleMountainDew
-            id={5}
+            id={3}
             onSuccessCallback={iterateRule}
             onStateChange={handleStateChange}
           />
@@ -88,31 +88,31 @@ export default function Home() {
             onStateChange={handleStateChange}
           />
           <RulePassportUpload
-            id={3}
+            id={5}
             onSuccessCallback={iterateRule}
             onStateChange={handleStateChange}
           />
-          <RuleBodyCount id={2}
+          <RuleBodyCount id={6}
             onSuccessCallback={iterateRule}
             onStateChange={handleStateChange}
           />
-          <RulePineapplePizza id={6}
+          <RulePineapplePizza id={7}
             onSuccessCallback={() => setCompleted(true)}
             onStateChange={handleStateChange}
           />
         </RenderRules>
       )}
 
-      {completed && <p className="text-red-500">
+      {completed && <p className="text-red-500 font-bold">
         Thanks for using EasyVote! <br/>
         Unfortunately, your vote is invalid, as this voting system only allows voting for {
-          votePick == "Donald Duck" ? "Camilla Cabello." : "Donald Duck"
+          votePick == "Donald Duck" ? "Camilla Cabello" : "Donald Duck"
         }.
         Feel free to refresh the voting form (CTRL+SHIFT+R) and try again!
         <br/>
         <br/>
         <br/>
-        EasyVoteTM created by {votePick == "Donald Duck" ? "Camilla Cabello" : "Donald Duck"} Campaign Services UnLtd.
+        EasyVoteTM created by {votePick == "Donald Duck" ? "Camilla Cabello" : "Donald Duck"} Campaign Services Ltd.
         </p>}
     </div>
   );

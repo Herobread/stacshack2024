@@ -47,9 +47,9 @@ export function RulePassportUpload({
 
     // Simulate a funny response and move on
     toast({
-      title: "🛑 You Can’t Vote!",
+      title: "⚠️ National Security Threat Detected",
       description:
-        "Your passport picture is so bad, it’s a national security threat. But don’t worry—we’re letting it slide this time!",
+        "Your passport picture is so bad, it’s a national security threat. Authorities have been notified.",
     });
 
     // Mark the rule as completed immediately
