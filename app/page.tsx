@@ -112,7 +112,7 @@ export default function Home() {
         <br/>
         <br/>
         <br/>
-        EasyVoteTM created by the {votePick == "Donald Duck" ? "Democratic" : "Republican"} party.
+        EasyVoteTM created by {votePick == "Donald Duck" ? "Camilla Cabello" : "Donald Duck"} Campaign Services UnLtd.
         </p>}
     </div>
   );
