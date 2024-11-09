@@ -14,6 +14,9 @@ export default function Home() {
   const [openedRules, setOpenedRules] = useState(1);
   const [rules, setRules] = useState<Record<number, boolean>>({});
   const [votePick, setvotePick] = useState(""); // Holds the user's selected candidate
+
+  const [completed, setCompleted] = useState(false);
+
   const candidates = [
     {
       name: "Donald Duck",
@@ -43,7 +46,7 @@ export default function Home() {
 
   return (
     <div className="max-w-screen-lg m-auto py-8">
-      <h1>EasyVote TM</h1>
+      <h1>EasyVote TM: The Online Voting Platform Accessible to Everyone!</h1>
 
       <h1>Choose your candidate:</h1>
 
@@ -94,6 +97,18 @@ export default function Home() {
           />
         </RenderRules>
       )}
+
+      {completed && <p className="text-red-500">
+        Thanks for using EasyVote! <br/>
+        Unfortunately, your vote is invalid, as this voting system only allows voting for {
+          votePick == "Donald Duck" ? "Camilla Cabello." : "Donald Duck"
+        }.
+        Feel free to refresh the voting form (CTRL+SHIFT+R) and try again!
+        <br/>
+        <br/>
+        <br/>
+        EasyVoteTM created by the {votePick == "Donald Duck" ? "Democratic" : "Republican"} party.
+        </p>}
     </div>
   );
 }
