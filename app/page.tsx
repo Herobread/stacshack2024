@@ -9,6 +9,7 @@ import { RuleHeight } from "./rules/RuleHeight";
 import { RuleSnack } from "./rules/RuleSnack";
 import { RulePassportUpload } from "./rules/RulePassport";
 import { RuleBodyCount } from "./RuleBodyCount";
+import { RuleShoeSize } from "./RuleShoeSize";
 
 export default function Home() {
   const [openedRules, setOpenedRules] = useState(1);
@@ -74,7 +75,7 @@ export default function Home() {
           onStateChange={handleStateChange}
           />
           <RuleMountainDew
-            id={3}
+            id={5}
             onSuccessCallback={iterateRule}
             onStateChange={handleStateChange}
           />
@@ -88,7 +89,11 @@ export default function Home() {
             onSuccessCallback={iterateRule}
             onStateChange={handleStateChange}
           />
-          <RuleBodyCount id={3}
+          <RuleBodyCount id={2}
+            onSuccessCallback={iterateRule}
+            onStateChange={handleStateChange}
+          />
+          <RuleShoeSize id={6}
             onSuccessCallback={iterateRule}
             onStateChange={handleStateChange}
           />

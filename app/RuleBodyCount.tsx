@@ -66,8 +66,6 @@ export function RuleBodyCount({
         // If we reach here, something went wrong.
         return;
     }
-
-   
   };
 
   return (
