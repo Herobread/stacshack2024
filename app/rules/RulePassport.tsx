@@ -45,21 +45,15 @@ export function RulePassportUpload({
       return;
     }
 
-    // Simulate a "bad passport picture" response
+    // Simulate a funny response and move on
     toast({
-      title: "🛑 You can’t vote!",
+      title: "🛑 You Can’t Vote!",
       description:
-        "Bad passport picture detected. Your face is a national security threat. Try again!",
+        "Your passport picture is so bad, it’s a national security threat. But don’t worry—we’re letting it slide this time!",
     });
 
-    // Mark the rule as completed after showing the message
-    setTimeout(() => {
-      toast({
-        title: "✅ Rule Completed",
-        description: "Your bad passport picture is accepted! Move along.",
-      });
-      notifySuccess();
-    }, 3000); // 3-second delay for humor
+    // Mark the rule as completed immediately
+    notifySuccess();
   };
 
   return (
