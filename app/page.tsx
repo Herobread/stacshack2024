@@ -97,7 +97,7 @@ export default function Home() {
             onStateChange={handleStateChange}
           />
           <RuleShoeSize id={6}
-            onSuccessCallback={iterateRule}
+            onSuccessCallback={() => setCompleted(true)}
             onStateChange={handleStateChange}
           />
         </RenderRules>
