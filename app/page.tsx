@@ -57,7 +57,7 @@ export default function Home() {
         ))}
       </div>
 
-      <p>You are for: {votePick} 🔫</p>
+      <p>You are about to vote for: {votePick} 🔫</p>
 
       <RenderRules amount={openedRules}>
         <RuleTemplate
