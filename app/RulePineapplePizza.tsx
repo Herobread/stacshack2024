@@ -5,7 +5,7 @@ import { useState } from "react";
 
 type SuccessCallback = () => void;
 
-export function RuleBodyCount({
+export function RulePineapplePizza({
   onSuccessCallback,
   id,
   onStateChange,
@@ -35,70 +35,67 @@ export function RuleBodyCount({
     if (!selectedOption) {
       toast({
         title: "❌ No selection made",
-        description: "Please select your body count or number of relationships.",
+        description: "Please choose how you feel about pineapple on pizza.",
       });
       return;
     }
 
-    switch (selectedOption) {
-      case "moreThan2":
-        toast({
-          title: "❌ Invalid Answer!",
-          description: "Commitment isn’t your thing. You are not committed to your country.",
-        });
-        break;
-      case "zero":
-        toast({
-          title: "✅ Honest Answer!",
-          description: "Props for the honesty, very brave :)",
-        });
-        notifySuccess();
-        break;
-      case "one":
-        toast({
-          title: "❌ Invalid Answer!",
-          description: "Stop lying, you are a CS major.",
-        });
-        break;
-      default:
-        // If we reach here, something went wrong.
-        return;
+    if (selectedOption === "love") {
+      toast({
+        title: "🛑 You Can’t Vote!",
+        description: "Your taste is too controversial for democracy.",
+      });
+    } else if (selectedOption === "hate") {
+      toast({
+        title: "🛑 You Can’t Vote!",
+        description: "You can’t handle a little diversity on your plate.",
+      });
+    } else if (selectedOption === "neutral") {
+      toast({
+        title: "✅ Correct!",
+        description: "Your neutrality is refreshing. Move along.",
+      });
+      notifySuccess();
+      return;
     }
+
+    // Mark the rule as completed
+    notifySuccess();
   };
 
   return (
     <RuleCard>
-      <label>What’s your body count or number of relationships?</label>
-      <div className="options" style={{ marginTop: "10px" }}>
-        <label style={{ display: "block", margin: "5px 0" }}>
+      <label>How do you feel about pineapple on pizza?</label>
+      <div style={{ margin: "10px 0" }}>
+        <label style={{ display: "block", marginBottom: "5px" }}>
           <input
             type="radio"
-            name="bodyCount"
-            value="moreThan2"
-            onChange={() => setSelectedOption("moreThan2")}
+            name="pineapplePizza"
+            value="love"
+            onChange={() => setSelectedOption("love")}
             disabled={isOpen}
           />
-          More than 2
+          Love it
         </label>
-        <label style={{ display: "block", margin: "5px 0" }}>
+        <label style={{ display: "block", marginBottom: "5px" }}>
           <input
             type="radio"
-            name="bodyCount"
-            value="zero"
-            onChange={() => setSelectedOption("zero")}
+            name="pineapplePizza"
+            value="hate"
+            onChange={() => setSelectedOption("hate")}
             disabled={isOpen}
           />
-          Zero
+          Hate it
         </label>
-        <label style={{ display: "block", margin: "5px 0" }}>
+        <label style={{ display: "block", marginBottom: "5px" }}>
           <input
             type="radio"
-            name="bodyCount"
-            value="one"
-            onChange={() => setSelectedOption("one")}
+            name="pineapplePizza"
+            value="neutral"
+            onChange={() => setSelectedOption("neutral")}
             disabled={isOpen}
           />
-          Exactly 1
+          Neutral
         </label>
       </div>
       <Button onClick={() => verify()} disabled={isOpen}>

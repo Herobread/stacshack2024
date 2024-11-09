@@ -9,7 +9,7 @@ import { RuleHeight } from "./rules/RuleHeight";
 import { RuleSnack } from "./rules/RuleSnack";
 import { RulePassportUpload } from "./rules/RulePassport";
 import { RuleBodyCount } from "./RuleBodyCount";
-import { RuleShoeSize } from "./RuleShoeSize";
+import { RulePineapplePizza, RuleShoeSize } from "./RulePineapplePizza";
 
 export default function Home() {
   const [openedRules, setOpenedRules] = useState(1);
@@ -96,7 +96,7 @@ export default function Home() {
             onSuccessCallback={iterateRule}
             onStateChange={handleStateChange}
           />
-          <RuleShoeSize id={6}
+          <RulePineapplePizza id={6}
             onSuccessCallback={() => setCompleted(true)}
             onStateChange={handleStateChange}
           />
