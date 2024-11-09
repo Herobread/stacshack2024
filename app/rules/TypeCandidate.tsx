@@ -44,8 +44,7 @@ export function TypeCandidate({
       {/* example content, replace with your fun content */}
       <div>
         <p>
-          Confirm your vote by typing the candidate's name backwards:{" "}
-          {isOpen ? "True" : "False"}
+          Confirm your vote by typing the candidate's name backwards:
         </p>
         <Input
           type="text"
@@ -56,7 +55,7 @@ export function TypeCandidate({
         />
       </div>
       <Button onClick={notifySuccess} disabled={isOpen}>
-        {isOpen ? "Success Notified" : "Notify Success"}
+        {isOpen ? "Verified" : "Verify"}
       </Button>
     </RuleCard>
   );

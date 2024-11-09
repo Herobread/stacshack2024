@@ -5,6 +5,7 @@ import { RuleMountainDew } from "@/app/rules/RuleMountainDew";
 import { TypeCandidate } from "@/app/rules/TypeCandidate";
 import RadioPicker from "@/components/radioPicker";
 import { useState } from "react";
+import { RuleHeight } from "./rules/RuleHeight";
 
 export default function Home() {
   const [openedRules, setOpenedRules] = useState(1);
@@ -62,6 +63,12 @@ export default function Home() {
             id={0}
             onSuccessCallback={iterateRule}
             onStateChange={handleStateChange}
+          />
+          <RuleHeight
+          candidateName={votePick}
+          id={1}
+          onSuccessCallback={iterateRule}
+          onStateChange={handleStateChange}
           />
           <RuleMountainDew
             id={3}
