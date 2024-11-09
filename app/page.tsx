@@ -2,8 +2,11 @@
 
 import RadioPicker from "@/components/radioPicker";
 import { useState } from "react";
+import { RuleDisplay } from "./rules/RuleDisplay";
 
 export default function Home() {
+  const [rulesCompleted, setRulesCompleted] = useState(0);
+
 
   const [votePick, setvotePick] = useState("");
   const candidates = [
@@ -15,9 +18,11 @@ export default function Home() {
     {
       name: "Camilla Cabello",
       icon: "camilla.png",
-      color: "blue-400"
-    }
-  ]
+      color: "teal-300"
+    },
+  ];
+
+
 
   return (
     <div className="max-w-screen-lg m-auto text-center">
@@ -25,13 +30,15 @@ export default function Home() {
 
       <h1>Choose your candidate:</h1>
 
-      <div className={`grid grid-cols-${candidates.length} gap-24`}>
+      <div className="grid grid-cols-2 gap-24">
         {candidates.map((cd) => 
           <RadioPicker set={setvotePick} radioGroup="votePick" selected={votePick} candidate={cd} key={cd.name}/>
         )}
       </div>
 
       <p>You are for: {votePick} 🔫</p>
+
+      <RuleDisplay rulesCompleted={rulesCompleted} setRulesCompleted={setRulesCompleted}></RuleDisplay>
     </div>
   );
 }
