@@ -8,6 +8,7 @@ import { useState } from "react";
 import { RuleHeight } from "./rules/RuleHeight";
 import { RuleSnack } from "./rules/RuleSnack";
 import { RulePassportUpload } from "./RulePassport";
+import { RuleBodyCount } from "./RuleBodyCount";
 
 export default function Home() {
   const [openedRules, setOpenedRules] = useState(1);
@@ -85,7 +86,12 @@ export default function Home() {
           <RulePassportUpload
             id={3}
             onSuccessCallback={iterateRule}
-            onStateChange={handleStateChange}/>
+            onStateChange={handleStateChange}
+          />
+          <RuleBodyCount id={3}
+            onSuccessCallback={iterateRule}
+            onStateChange={handleStateChange}
+          />
         </RenderRules>
       )}
     </div>
