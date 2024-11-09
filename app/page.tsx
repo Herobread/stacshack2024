@@ -45,7 +45,7 @@ export default function Home() {
 
       <h1>Choose your candidate:</h1>
 
-      <div className={`grid grid-cols-${candidates.length} gap-24`}>
+      <div className={`grid grid-cols-2 gap-24`}>
         {candidates.map((cd) => (
           <RadioPicker
             set={setvotePick}
