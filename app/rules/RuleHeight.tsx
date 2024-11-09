@@ -31,7 +31,7 @@ export function RuleHeight({
   const { toast } = useToast();
 
 
-  // run this function whenever u want to mark this rule completed and allow progression to next one
+  // run this function whenever you want to mark this rule completed and allow progression to next one
   const notifySuccess = () => {
     if (!isOpen) {
       // Update local state to mark the rule as "success notified"
